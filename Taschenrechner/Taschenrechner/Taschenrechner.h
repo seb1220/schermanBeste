@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_Taschenrechner.h"
+#include "ui_UPNRechner.h"
 
 class Taschenrechner : public QMainWindow
 {

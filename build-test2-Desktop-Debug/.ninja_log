@@ -1,0 +1,12 @@
+# ninja log v5
+2	374	1696270534715341856	test2_autogen/timestamp	b276bbef0ce44124
+2	374	1696270534715341856	test2_autogen/mocs_compilation.cpp	b276bbef0ce44124
+2	374	1696270534715341856	/home/dusack/Documents/5gegen_w/scher/schermannballert/build-test2-Desktop-Debug/test2_autogen/timestamp	b276bbef0ce44124
+2	374	1696270534715341856	/home/dusack/Documents/5gegen_w/scher/schermannballert/build-test2-Desktop-Debug/test2_autogen/mocs_compilation.cpp	b276bbef0ce44124
+375	391	1696270534735342073	test2_autogen/EWIEGA46WW/qrc_UPNRechner.cpp	b5c30c9ca213d1cb
+375	391	1696270534735342073	/home/dusack/Documents/5gegen_w/scher/schermannballert/build-test2-Desktop-Debug/test2_autogen/EWIEGA46WW/qrc_UPNRechner.cpp	b5c30c9ca213d1cb
+393	430	1696270534775342507	CMakeFiles/test2.dir/test2_autogen/EWIEGA46WW/qrc_UPNRechner.cpp.o	6f922e45e4ef8438
+392	3027	1696270537367370625	CMakeFiles/test2.dir/src/main.cpp.o	2882e6ca3c22c02a
+391	3100	1696270537443371449	CMakeFiles/test2.dir/test2_autogen/mocs_compilation.cpp.o	a7e96f1364c7da43
+393	3229	1696270537571372838	CMakeFiles/test2.dir/src/UPNRechner.cpp.o	10d40aa489ad40e4
+3229	3751	1696270538083378392	test2	8ff2ef54d429ece

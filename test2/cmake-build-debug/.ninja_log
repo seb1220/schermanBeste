@@ -1,0 +1,20 @@
+# ninja log v5
+415	2859	1696269957477080147	CMakeFiles/test2.dir/test2_autogen/mocs_compilation.cpp.o	f8ad0c460c877874
+410	427	1696269692526206039	test2_autogen/EWIEGA46WW/qrc_UPNRechner.cpp	3a8cb61a1a6bd7da
+417	462	1696269955081054156	CMakeFiles/test2.dir/test2_autogen/EWIEGA46WW/qrc_UPNRechner.cpp.o	1ee1e6fb040b7192
+417	3015	1696269957633081840	CMakeFiles/test2.dir/src/mainwindow.cpp.o	e850b5ccd5b64eef
+416	2989	1696269957605081536	CMakeFiles/test2.dir/src/main.cpp.o	785b56d41b8db0fe
+3	415	1696269955029053592	test2_autogen/timestamp	45d5d8bfd54d661c
+3	415	1696269955029053592	/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/test2_autogen/mocs_compilation.cpp	45d5d8bfd54d661c
+410	427	1696269692526206039	/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/test2_autogen/EWIEGA46WW/qrc_UPNRechner.cpp	3a8cb61a1a6bd7da
+3	415	1696269955029053592	/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/test2_autogen/timestamp	45d5d8bfd54d661c
+3015	3541	1696269958149087437	test2	6e39d8ac8cc5f0f0
+3	415	1696269955029053592	test2_autogen/mocs_compilation.cpp	45d5d8bfd54d661c
+3	399	1696270052402109866	test2_autogen/timestamp	45d5d8bfd54d661c
+3	399	1696270052402109866	test2_autogen/mocs_compilation.cpp	45d5d8bfd54d661c
+3	399	1696270052402109866	/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/test2_autogen/timestamp	45d5d8bfd54d661c
+3	399	1696270052402109866	/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/test2_autogen/mocs_compilation.cpp	45d5d8bfd54d661c
+400	3081	1696270055086138981	CMakeFiles/test2.dir/src/main.cpp.o	785b56d41b8db0fe
+399	3093	1696270055098139112	CMakeFiles/test2.dir/test2_autogen/mocs_compilation.cpp.o	f8ad0c460c877874
+401	3316	1696270055318141498	CMakeFiles/test2.dir/src/UPNRechner.cpp.o	82138480f4c67794
+3316	3845	1696270055842147182	test2	eef9cafe1bc5371d

@@ -1,0 +1,6 @@
+# ninja log v5
+2	17	1696241659562789254	test_autogen/mocs_compilation.cpp	12d2663ed502a0a
+3	1625	1696241845596949853	CMakeFiles/test.dir/src/main.cpp.o	76581e1bec598b5f
+2	17	1696241659562789254	/home/dusack/Documents/5gegen_w/scher/schermannballert/test/cmake-build-debug/test_autogen/timestamp	12d2663ed502a0a
+2	17	1696241659562789254	/home/dusack/Documents/5gegen_w/scher/schermannballert/test/cmake-build-debug/test_autogen/mocs_compilation.cpp	12d2663ed502a0a
+2	17	1696241659562789254	test_autogen/timestamp	12d2663ed502a0a

@@ -1,0 +1,9 @@
+/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/CMakeFiles/test2.dir
+/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/CMakeFiles/list_install_components.dir
+/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/CMakeFiles/install.dir
+/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/CMakeFiles/install/local.dir
+/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/CMakeFiles/install/strip.dir
+/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/CMakeFiles/test2_autogen_timestamp_deps.dir
+/home/dusack/Documents/5gegen_w/scher/schermannballert/test2/cmake-build-debug/CMakeFiles/test2_autogen.dir
