@@ -11,6 +11,8 @@ include(QtCommon)
 
 project(XMLExplorer VERSION 1.0)
 
+file(GLOB SHARED_LIBRARIES ${CMAKE_CURRENT_SOURCE_DIR}/lib/*.so)
+
 # define the source and header files
 set(SRC_FILES
         src/main.cpp
@@ -35,6 +37,6 @@ add_executable(${PROJECT_NAME} ${OS_BUNDLE} # Expands to WIN32 or MACOS_BUNDLE d
 
 target_precompile_headers(${PROJECT_NAME} INTERFACE QtWidgets.h)
 
-target_link_libraries(${PROJECT_NAME} Qt6::Core Qt6::Gui Qt6::Widgets ${CMAKE_SOURCE_DIR}/lib/libTinyXml2Lib.so)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets ${SHARED_LIBRARIES})
 
 install(TARGETS ${PROJECT_NAME})
