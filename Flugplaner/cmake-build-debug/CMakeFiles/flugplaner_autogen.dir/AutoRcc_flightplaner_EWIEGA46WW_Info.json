@@ -1,0 +1,19 @@
+{
+	"BUILD_DIR" : "/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/flugplaner_autogen",
+	"CMAKE_BINARY_DIR" : "/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner",
+	"CMAKE_SOURCE_DIR" : "/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner",
+	"INCLUDE_DIR" : "/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/flugplaner_autogen/include",
+	"INPUTS" : [],
+	"LOCK_FILE" : "/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/CMakeFiles/flugplaner_autogen.dir/AutoRcc_flightplaner_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "flightplaner" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_flightplaner.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt6/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/CMakeFiles/flugplaner_autogen.dir/AutoRcc_flightplaner_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/flightplaner.qrc",
+	"VERBOSITY" : 0
+}

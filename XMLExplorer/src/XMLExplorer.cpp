@@ -6,18 +6,15 @@
 #include "lib/tinyxml2.h"
 
 XMLExplorer::XMLExplorer(QWidget *parent)
-    : QMainWindow(parent)
-{
+        : QMainWindow(parent) {
     ui.setupUi(this);
 
 }
 
 XMLExplorer::~XMLExplorer()
-{}
+= default;
 
 void XMLExplorer::on_openFile_clicked() {
-    ui.openFile->setText("Close");
-
     QFileDialog dialog(this);
     dialog.setFileMode(QFileDialog::AnyFile);
     dialog.setNameFilter(tr("XML files (*.xml)"));
@@ -28,28 +25,71 @@ void XMLExplorer::on_openFile_clicked() {
         fileNames = dialog.selectedFiles();
     }
 
-    tinyxml2::XMLDocument doc;
     doc.LoadFile(fileNames[0].toStdString().c_str());
 
-    QModelIndex index = model.index(0, 0);
-    QVariant data = QVariant::fromValue(doc.RootElement());
-//    model.setRootPath("/home/dusack/Downloads/");
-    model.setData(index, data);
+    ui.treeWidget->setHeaderLabels(QStringList() << "XML Tree");
+    ui.treeWidget->setCurrentItem(new QTreeWidgetItem(ui.treeWidget, QStringList(QString(doc.RootElement()->Name()))));
 
-//    QVariant rootData = QVariant::fromValue(doc.RootElement());
-//    model.setData(model.index(0, 0), rootData);
-//    model.setData(model.index(1, 0), rootData);
-//    model.setData(model.index(1, 1), rootData);
+    fillTreeWidget(doc.RootElement());
+}
 
-    std::cout << "abc" << std::endl;
+void XMLExplorer::fillTreeWidget(tinyxml2::XMLElement *element) {
 
-    auto data2 = model.data(index);
-    auto data3 = data2.value<tinyxml2::XMLElement*>();
-    std::cout << data3->Name() << std::endl;
-    std::cout << "help" << std::endl;
-//    auto data2 = data.value<tinyxml2::XMLElement*>();
+    auto *item = new QTreeWidgetItem(ui.treeWidget->currentItem(), QStringList(QString(element->Name())));
+    item->setData(0, Qt::UserRole, QVariant::fromValue(element));
+    ui.treeWidget->currentItem()->addChild(item);
+    ui.treeWidget->setCurrentItem(item);
 
-    ui.xmlTree->setModel(&model);
+    for (auto child = element->FirstChildElement(); child != nullptr; child = child->NextSiblingElement()) {
+        fillTreeWidget(child);
+    }
 
-    ui.openFile->setText(model.data(model.index(0, 0)).toString());
+    ui.treeWidget->setCurrentItem(ui.treeWidget->currentItem()->parent());
+}
+
+void XMLExplorer::on_treeWidget_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous) {
+    ui.tableWidget->clear();
+    ui.tableWidget->insertRow(0);
+    ui.tableWidget->insertColumn(0);
+//    ui.tableWidget->insertColumn(1);
+//    ui.tableWidget->setItem(0, 0, new QTableWidgetItem("test"));
+//    ui.tableWidget->setItem(0, 1, new QTableWidgetItem("test"));
+
+    ui.listWidget->clear();
+
+    auto *element = current->data(0, Qt::UserRole).value<tinyxml2::XMLElement *>();
+
+    if (element != nullptr) {
+        for (auto attribute = element->FirstAttribute(); attribute != nullptr; attribute = attribute->Next()) {
+            ui.listWidget->addItem(QString(attribute->Name()) + ": " + QString(attribute->Value()));
+            ui.tableWidget->setItem(0, 0, new QTableWidgetItem(QString(attribute->Name())));
+            ui.tableWidget->setItem(0, 1, new QTableWidgetItem(QString(attribute->Value())));
+        }
+    }
+}
+
+tinyxml2::XMLElement *XMLExplorer::findElement(tinyxml2::XMLElement *element, const QString &name) {
+    if (element->Name() == name) {
+        return element;
+    }
+    for (auto child = element->FirstChildElement(); child != nullptr; child = child->NextSiblingElement()) {
+        findElement(child, name);
+        if (child->Name() == name) {
+            return child;
+        }
+    }
+
+    return nullptr;
+}
+
+void XMLExplorer::on_tableWidget_itemChanged(QTableWidgetItem *item) {
+//    std::cout << item->text().toStdString() << std::endl;
+
+    auto* element = ui.treeWidget->selectedItems()[0]->data(0, Qt::UserRole).value<tinyxml2::XMLElement *>();
+
+    if (element != nullptr) {
+//        std::cout << element->Name() << std::endl;
+//        if (item->column() == 1 && ui.tableWidget->item(item->row(), 0) != nullptr)
+//            element->SetAttribute(ui.tableWidget->item(item->row(), 0)->text().toStdString().c_str(), item->text().toStdString().c_str());
+    }
 }

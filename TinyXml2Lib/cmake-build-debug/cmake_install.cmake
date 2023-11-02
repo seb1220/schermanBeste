@@ -1,4 +1,4 @@
-# Install script for directory: /home/dusack/Documents/5gegen_w/scher/schermannballert/TinyXml2Lib
+# Install script for directory: /home/dusack/Documents/5gegen_w/scher/schermanballert/TinyXml2Lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/dusack/Documents/5gegen_w/scher/schermannballert/TinyXml2Lib/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/dusack/Documents/5gegen_w/scher/schermanballert/TinyXml2Lib/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
