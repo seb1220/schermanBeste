@@ -15,6 +15,7 @@ public:
     ~flightplaner();
 
 private slots:
+    void findFlightPaths();
 
 private:
     Ui::flightplanerClass ui;

@@ -18,6 +18,9 @@ set(SRC_FILES
         src/flightmap.cpp
         src/dbmanager.cpp
         src/airport.cpp
+        src/airline.cpp
+        src/alliance.cpp
+        src/flight.cpp
 )
 
 add_project_meta(META_FILES_TO_INCLUDE)

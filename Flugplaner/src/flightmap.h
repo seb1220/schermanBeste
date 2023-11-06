@@ -12,6 +12,8 @@ public:
     explicit flightmap(QWidget *parent = nullptr);
     ~flightmap();
     void paintEvent(QPaintEvent *event);
+    void addCity(QPointF city);
+    void clearCities() { cities.clear(); }
 
 private:
     QPointF getPixelPos(QPointF coord);

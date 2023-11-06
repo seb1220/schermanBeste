@@ -27,3 +27,8 @@ QPointF flightmap::getPixelPos(QPointF coord) {
     coord.setY((-coord.y() + 90.0) / 180.0 * QWidget::height());
     return coord;
 }
+
+void flightmap::addCity(QPointF city) {
+    cities.append(city);
+    repaint();
+}

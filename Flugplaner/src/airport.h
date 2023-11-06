@@ -1,7 +1,3 @@
-//
-// Created by dusack on 10/23/23.
-//
-
 #ifndef FLUGPLANER_AIRPORT_H
 #define FLUGPLANER_AIRPORT_H
 
@@ -9,6 +5,7 @@
 
 
 class airport {
+public:
     int id;
     QString name;
     QString iata;
