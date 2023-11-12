@@ -13,12 +13,14 @@ public:
     ~flightmap();
     void paintEvent(QPaintEvent *event);
     void addCity(QPointF city);
-    void clearCities() { cities.clear(); }
+    void addConnection(QPointF from, QPointF to);
+    void clear();
 
 private:
     QPointF getPixelPos(QPointF coord);
 
     QVector<QPointF> cities;
+    QVector<std::pair<QPointF, QPointF>> conns;
 
 signals:
 
