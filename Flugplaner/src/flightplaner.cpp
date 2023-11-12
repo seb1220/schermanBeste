@@ -8,9 +8,6 @@ flightplaner::flightplaner(QWidget *parent)
 {
     ui.setupUi(this);
 
-//    connect(ui.cb_from, SIGNAL(currentIndexChanged(int)), this, SLOT(findFlightPaths()));
-//    connect(ui.cb_to, SIGNAL(currentIndexChanged(int)), this, SLOT(findFlightPaths()));
-//    connect(ui.cb_airline, SIGNAL(currentIndexChanged(int)), this, SLOT(findFlightPaths()));
     connect(ui.startSearch, SIGNAL(clicked()), this, SLOT(findFlightPaths()));
 
     for (const auto& airport : db.airports) {
@@ -90,8 +87,6 @@ void flightplaner::findFlightPaths() {
             paths.emplace(hops + weight, added_airport);
         }
 
-//        std::cout << current_airport.name.toStdString() << " " << visited[current_airport.id].first.first << "\n";
-//        std::cout << paths.size() << "\n";
         visited[current_airport.id].second = true;
     }
 
@@ -106,6 +101,4 @@ void flightplaner::findFlightPaths() {
     } else {
         std::cout << "No path found." << std::endl;
     }
-
-//    std::cout << "Nothing found :(" << std::endl;
 }
