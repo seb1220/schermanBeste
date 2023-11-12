@@ -62,7 +62,7 @@ void flightplaner::findFlightPaths() {
         int hops = paths.top().first;
         paths.pop();
 
-        if (hops >= visited[current_airport.id].first.first)
+        if (visited[current_airport.id].second)
             continue;
 
         if (current_airport.id == to.id) {
