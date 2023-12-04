@@ -1,0 +1,20 @@
+<program> ::= <statement list>
+<statement list> ::= <statement> | <statement list> \n <statement>
+<block> ::= "{" \n <statement list> \n "}"
+<statement> ::= <collect statement> | <move statement> | block |
+                <conditional statement> | <definite loop> | <indefinite loop>
+
+<collect statement> ::= collect
+<move statement> ::= move <direction>
+
+<conditional statement> ::= if <comparison> <block>
+
+<definite loop> ::= repeat <number> <block>
+<indefinite loop> ::= until <comparison> <block>
+
+<comparison> ::= <direction> is-a <element>
+<direction> ::= UP | DOWN | LEFT | RIGHT
+<element> ::= OBSTACLE | <letter>
+<letter> ::= a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z
+<number> ::= <number> <digit>
+<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
