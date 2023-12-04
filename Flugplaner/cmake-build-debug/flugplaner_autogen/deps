@@ -42,10 +42,16 @@ flugplaner_autogen/timestamp: \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/flugplaner_autogen/moc_predefs.h \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake/QtCommon.cmake \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/flightplaner.qrc \
+	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airline.cpp \
+	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airline.h \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airport.cpp \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airport.h \
+	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/alliance.cpp \
+	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/alliance.h \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/dbmanager.cpp \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/dbmanager.h \
+	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flight.cpp \
+	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flight.h \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flightmap.cpp \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flightmap.h \
 	/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flightplaner.cpp \

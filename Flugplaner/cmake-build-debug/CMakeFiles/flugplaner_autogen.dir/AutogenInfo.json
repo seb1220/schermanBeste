@@ -185,15 +185,33 @@
 	"HEADERS" : 
 	[
 		[
+			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airline.h",
+			"MU",
+			"UVLADIE3JM/moc_airline.cpp",
+			null
+		],
+		[
 			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airport.h",
 			"MU",
 			"UVLADIE3JM/moc_airport.cpp",
 			null
 		],
 		[
+			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/alliance.h",
+			"MU",
+			"UVLADIE3JM/moc_alliance.cpp",
+			null
+		],
+		[
 			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/dbmanager.h",
 			"MU",
 			"UVLADIE3JM/moc_dbmanager.cpp",
+			null
+		],
+		[
+			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flight.h",
+			"MU",
+			"UVLADIE3JM/moc_flight.cpp",
 			null
 		],
 		[
@@ -271,12 +289,27 @@
 	"SOURCES" : 
 	[
 		[
+			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airline.cpp",
+			"MU",
+			null
+		],
+		[
 			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airport.cpp",
 			"MU",
 			null
 		],
 		[
+			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/alliance.cpp",
+			"MU",
+			null
+		],
+		[
 			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/dbmanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flight.cpp",
 			"MU",
 			null
 		],

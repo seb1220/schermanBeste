@@ -1,7 +1,10 @@
 /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/flugplaner_autogen/UVLADIE3JM/moc_flightplaner.cpp: /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flightplaner.h \
   /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/flugplaner_autogen/moc_predefs.h \
+  /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airline.h \
   /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airport.h \
+  /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/alliance.h \
   /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/dbmanager.h \
+  /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flight.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \

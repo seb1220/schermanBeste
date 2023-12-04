@@ -97,6 +97,30 @@ build CMakeFiles/flugplaner.dir/src/airport.cpp.o: CXX_COMPILER__flugplaner_unsc
   OBJECT_DIR = CMakeFiles/flugplaner.dir
   OBJECT_FILE_DIR = CMakeFiles/flugplaner.dir/src
 
+build CMakeFiles/flugplaner.dir/src/airline.cpp.o: CXX_COMPILER__flugplaner_unscanned_Debug /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/airline.cpp || cmake_object_order_depends_target_flugplaner
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/flugplaner.dir/src/airline.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/flugplaner_autogen/include -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src -isystem /usr/include/x86_64-linux-gnu/qt6/QtCore -isystem /usr/include/x86_64-linux-gnu/qt6 -isystem /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt6/QtGui -isystem /usr/include/x86_64-linux-gnu/qt6/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt6/QtSql
+  OBJECT_DIR = CMakeFiles/flugplaner.dir
+  OBJECT_FILE_DIR = CMakeFiles/flugplaner.dir/src
+
+build CMakeFiles/flugplaner.dir/src/alliance.cpp.o: CXX_COMPILER__flugplaner_unscanned_Debug /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/alliance.cpp || cmake_object_order_depends_target_flugplaner
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/flugplaner.dir/src/alliance.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/flugplaner_autogen/include -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src -isystem /usr/include/x86_64-linux-gnu/qt6/QtCore -isystem /usr/include/x86_64-linux-gnu/qt6 -isystem /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt6/QtGui -isystem /usr/include/x86_64-linux-gnu/qt6/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt6/QtSql
+  OBJECT_DIR = CMakeFiles/flugplaner.dir
+  OBJECT_FILE_DIR = CMakeFiles/flugplaner.dir/src
+
+build CMakeFiles/flugplaner.dir/src/flight.cpp.o: CXX_COMPILER__flugplaner_unscanned_Debug /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src/flight.cpp || cmake_object_order_depends_target_flugplaner
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/flugplaner.dir/src/flight.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/flugplaner_autogen/include -I/home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/src -isystem /usr/include/x86_64-linux-gnu/qt6/QtCore -isystem /usr/include/x86_64-linux-gnu/qt6 -isystem /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt6/QtGui -isystem /usr/include/x86_64-linux-gnu/qt6/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt6/QtSql
+  OBJECT_DIR = CMakeFiles/flugplaner.dir
+  OBJECT_FILE_DIR = CMakeFiles/flugplaner.dir/src
+
 build CMakeFiles/flugplaner.dir/flugplaner_autogen/EWIEGA46WW/qrc_flightplaner.cpp.o: CXX_COMPILER__flugplaner_unscanned_Debug /home/dusack/Documents/5gegen_w/scher/schermanballert/Flugplaner/cmake-build-debug/flugplaner_autogen/EWIEGA46WW/qrc_flightplaner.cpp || cmake_object_order_depends_target_flugplaner
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/flugplaner.dir/flugplaner_autogen/EWIEGA46WW/qrc_flightplaner.cpp.o.d
@@ -113,7 +137,7 @@ build CMakeFiles/flugplaner.dir/flugplaner_autogen/EWIEGA46WW/qrc_flightplaner.c
 #############################################
 # Link the executable flugplaner
 
-build flugplaner: CXX_EXECUTABLE_LINKER__flugplaner_Debug CMakeFiles/flugplaner.dir/flugplaner_autogen/mocs_compilation.cpp.o CMakeFiles/flugplaner.dir/src/main.cpp.o CMakeFiles/flugplaner.dir/src/flightplaner.cpp.o CMakeFiles/flugplaner.dir/src/flightmap.cpp.o CMakeFiles/flugplaner.dir/src/dbmanager.cpp.o CMakeFiles/flugplaner.dir/src/airport.cpp.o CMakeFiles/flugplaner.dir/flugplaner_autogen/EWIEGA46WW/qrc_flightplaner.cpp.o | /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Sql.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2 || flugplaner_autogen flugplaner_autogen_timestamp_deps
+build flugplaner: CXX_EXECUTABLE_LINKER__flugplaner_Debug CMakeFiles/flugplaner.dir/flugplaner_autogen/mocs_compilation.cpp.o CMakeFiles/flugplaner.dir/src/main.cpp.o CMakeFiles/flugplaner.dir/src/flightplaner.cpp.o CMakeFiles/flugplaner.dir/src/flightmap.cpp.o CMakeFiles/flugplaner.dir/src/dbmanager.cpp.o CMakeFiles/flugplaner.dir/src/airport.cpp.o CMakeFiles/flugplaner.dir/src/airline.cpp.o CMakeFiles/flugplaner.dir/src/alliance.cpp.o CMakeFiles/flugplaner.dir/src/flight.cpp.o CMakeFiles/flugplaner.dir/flugplaner_autogen/EWIEGA46WW/qrc_flightplaner.cpp.o | /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Sql.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2 || flugplaner_autogen flugplaner_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2  /usr/lib/x86_64-linux-gnu/libQt6Sql.so.6.4.2  /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so  /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
   OBJECT_DIR = CMakeFiles/flugplaner.dir
@@ -222,7 +246,7 @@ build flugplaner_autogen/EWIEGA46WW/qrc_flightplaner.cpp | ${cmake_ninja_workdir
 #############################################
 # Phony custom command for CMakeFiles/flugplaner_autogen_timestamp_deps
 
-build CMakeFiles/flugplaner_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/flugplaner_autogen_timestamp_deps: phony /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2 /usr/lib/qt6/libexec/moc /usr/lib/x86_64-linux-gnu/libQt6Sql.so.6.4.2 /usr/lib/qt6/libexec/uic
+build CMakeFiles/flugplaner_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/flugplaner_autogen_timestamp_deps: phony /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2 /usr/lib/qt6/libexec/moc /usr/lib/qt6/libexec/uic /usr/lib/x86_64-linux-gnu/libQt6Sql.so.6.4.2
 
 
 #############################################
