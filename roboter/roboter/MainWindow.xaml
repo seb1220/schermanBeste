@@ -8,6 +8,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <robot:RobotField Name="robotField"></robot:RobotField>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Content="Load Map" Name="loadMap" Click="loadMap_Click"></Button>
+            <Button Grid.Row="1" Content="Load Code" Name="loadCode" Click="loadCode_Click"></Button>
+            <TextBox Grid.Row="2" Text="" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Name="code"/>
+            <Button Grid.Row="3" Content="Run Program" Name="run" Click="run_Click"></Button>
+
+        </Grid>
     </Grid>
 </Window>
