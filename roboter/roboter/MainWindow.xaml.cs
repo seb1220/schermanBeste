@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,34 +17,6 @@ namespace roboter
             InitializeComponent();
 
             robotField.LoadField("C:\\Users\\sebas\\source\\repos\\tmpScher\\roboter\\Aufgabe1.xml");
-        }
-
-        private void checkSyntax()
-        {
-            // Define a regular expression for repeated words.
-            Regex rx = new Regex(@"(REPEAT|MOVE|UNTIL|IF|IS-A|COLLECT|UP|DOWN|LEFT|RIGHT|OBSTACLE|\d+|{|}|\S+)(\s+|$)",
-              RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
-            // Define a test string.
-            string text = code.Text;
-
-            // Find matches.
-            MatchCollection matches = rx.Matches(text);
-
-            // Report the number of matches found.
-            Console.WriteLine("{0} matches found in:\n{1}",
-                              matches.Count,
-                              text);
-
-            // Report on each match.
-            foreach (Match match in matches)
-            {
-                GroupCollection groups = match.Groups;
-                Console.WriteLine("'{0}' repeated at positions {1}",
-                                  groups[1].Value,
-                                  groups[1].Index);
-            }
-
         }
 
         private void loadMap_Click(object sender, RoutedEventArgs e)
@@ -70,7 +43,42 @@ namespace roboter
 
         private void run_Click(object sender, RoutedEventArgs e)
         {
-            checkSyntax();
+            List<Token> tokens = tokanize();
+
+            foreach (Token token in tokens)
+            {
+                Console.WriteLine(token.value);
+            }
+            Console.WriteLine("------------------------");
+
+            Program program = new Program(tokens);
+            Console.WriteLine("Parsed successfully!");
+
+            foreach (var error in Program.Errors)
+                Console.WriteLine(error);
+            program.run(robotField);
+        }
+
+        private List<Token> tokanize()
+        {
+            // Define a regular expression for repeated words.
+            Regex rx = new Regex(@"(REPEAT|MOVE|UNTIL|IF|IS-A|COLLECT|UP|DOWN|LEFT|RIGHT|OBSTACLE|\d+|{|}|\S+)(\s+|$)",
+              RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+            // Define a test string.
+            string text = code.Text;
+
+            // Find matches.
+            MatchCollection matches = rx.Matches(text);
+
+            List<Token> tokens = new List<Token>();
+            foreach (Match match in matches)
+            {
+                GroupCollection groups = match.Groups;
+                tokens.Add(new Token(groups[1].Value));
+            }
+
+            return tokens;
         }
     }
 }
