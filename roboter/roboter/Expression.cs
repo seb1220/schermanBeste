@@ -14,6 +14,6 @@ namespace roboter
 
         public abstract void Parse(List<Token> tokens);
 
-        public abstract void Run(RobotField robot);
+        public abstract bool Run(RobotField robot);
     }
 }

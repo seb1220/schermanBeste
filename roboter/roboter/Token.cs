@@ -5,7 +5,8 @@
         keyword,
         number,
         bracket,
-        newline
+        newline,
+        fieldType
     }
 
     internal class Token
@@ -27,8 +28,16 @@
                 case "DOWN":
                 case "LEFT":
                 case "RIGHT":
-                case "OBSTACLE":
                     type = token_type.keyword;
+                    break;
+                case "A":
+                case "B":
+                case "C":
+                case "D":
+                case "E":
+                case "F":
+                case "OBSTACLE":
+                    type = token_type.fieldType;
                     break;
                 case "{":
                 case "}":

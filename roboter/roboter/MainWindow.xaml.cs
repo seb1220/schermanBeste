@@ -56,7 +56,9 @@ namespace roboter
 
             foreach (var error in Program.Errors)
                 Console.WriteLine(error);
-            program.run(robotField);
+
+            Console.WriteLine(program.run(robotField));
+            Console.WriteLine("Ran successfully!");
         }
 
         private List<Token> tokanize()

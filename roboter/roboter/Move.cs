@@ -48,9 +48,9 @@ namespace roboter
             Console.WriteLine("Processed Move.");
         }
 
-        public override void Run(RobotField robot)
+        public override bool Run(RobotField robot)
         {
-            robot.Move(dir);
+            return robot.Move(dir);
         }
     }
 }

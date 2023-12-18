@@ -38,10 +38,13 @@ namespace roboter
             Console.WriteLine("Processed Repeat.");
         }
 
-        public override void Run(RobotField robot)
+        public override bool Run(RobotField robot)
         {
+            bool success = true;
             for (int i = 0; i < count; ++i)
-                block.Run(robot);
+                if (!block.Run(robot))
+                    success = false;
+            return success;
         }
     }
 }

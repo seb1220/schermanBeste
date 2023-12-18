@@ -19,9 +19,10 @@ namespace roboter
             Console.WriteLine("Processed Collect.");
         }
 
-        public override void Run(RobotField robot)
+        public override bool Run(RobotField robot)
         {
             robot.Collect();
+            return true;
         }
     }
 }

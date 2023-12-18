@@ -40,30 +40,16 @@ namespace roboter
                         collect.Parse(tokens);
                         expressions.Add(collect);
                         break;
-                    /* case "UNTIL":
-                         expressions.Add(UntilExpr.Parse(tokens));
-                         break;
-                     case "IF":
-                         expressions.Add(IfExpr.Parse(tokens));
-                         break;
-                     case "IS-A":
-                         expressions.Add(IsAExpr.Parse(tokens));
-                         break;
-                     case "UP":
-                         expressions.Add(UpExpr.Parse(tokens));
-                         break;
-                     case "DOWN":
-                         expressions.Add(DownExpr.Parse(tokens));
-                         break;
-                     case "LEFT":
-                         expressions.Add(LeftExpr.Parse(tokens));
-                         break;
-                     case "RIGHT":
-                         expressions.Add(RightExpr.Parse(tokens));
-                         break;
-                     case "OBSTACLE":
-                         expressions.Add(ObstacleExpr.Parse(tokens));
-                         break;*/
+                    case "UNTIL":
+                        Until until = new Until(this);
+                        until.Parse(tokens);
+                        expressions.Add(until);
+                        break;
+                    case "IF":
+                        If if_expr = new If(this);
+                        if_expr.Parse(tokens);
+                        expressions.Add(if_expr);
+                        break;
                     case "{":
                         tokens.RemoveAt(0);
                         endBracket++;
@@ -76,10 +62,13 @@ namespace roboter
             }
         }
 
-        public override void Run(RobotField robot)
+        public override bool Run(RobotField robot)
         {
+            bool success = true;
             foreach (Expression expression in expressions)
-                expression.Run(robot);
+                if (!expression.Run(robot))
+                    success = false;
+            return success;
         }
     }
 }

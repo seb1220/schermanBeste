@@ -14,9 +14,9 @@ namespace roboter
             Root.Parse(tokens);
         }
 
-        public void run(RobotField robot)
+        public bool run(RobotField robot)
         {
-            Root.Run(robot);
+            return Root.Run(robot);
         }
     }
 }
