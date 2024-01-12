@@ -1,0 +1,68 @@
+﻿<Window x:Class="TaschenrechnerWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaschenrechnerWPF"
+        mc:Ignorable="d"
+        Title="Calculator" Height="350" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Anzeige für den Taschenrechner -->
+        <TextBox Grid.Row="0" Name="Display" Text="" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+
+        <!-- Tasten für den Taschenrechner -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Ziffern 0 bis 9 -->
+            <Button Content="0" Grid.Row="4" Grid.Column="1" Click="Button_Click"/>
+            <Button Content="1" Grid.Row="3" Grid.Column="0" Click="Button_Click"/>
+            <Button Content="2" Grid.Row="3" Grid.Column="1" Click="Button_Click"/>
+            <Button Content="3" Grid.Row="3" Grid.Column="2" Click="Button_Click"/>
+            <Button Content="4" Grid.Row="2" Grid.Column="0" Click="Button_Click"/>
+            <Button Content="5" Grid.Row="2" Grid.Column="1" Click="Button_Click"/>
+            <Button Content="6" Grid.Row="2" Grid.Column="2" Click="Button_Click"/>
+            <Button Content="7" Grid.Row="1" Grid.Column="0" Click="Button_Click"/>
+            <Button Content="8" Grid.Row="1" Grid.Column="1" Click="Button_Click"/>
+            <Button Content="9" Grid.Row="1" Grid.Column="2" Click="Button_Click"/>
+
+            <!-- Dezimaltrennzeichen . oder , -->
+            <Button Content="." Grid.Row="4" Grid.Column="2" Click="Button_Click"/>
+
+            <!-- Operatoren +, -, /, *, ^ -->
+            <Button Content="+" Grid.Row="1" Grid.Column="3" Click="Button_Click"/>
+            <Button Content="-" Grid.Row="2" Grid.Column="3" Click="Button_Click"/>
+            <Button Content="/" Grid.Row="3" Grid.Column="3" Click="Button_Click"/>
+            <Button Content="*" Grid.Row="4" Grid.Column="3" Click="Button_Click"/>
+            <Button Content="^" Grid.Row="4" Grid.Column="0" Click="Button_Click"/>
+
+            <!-- Klammern (, ) -->
+            <Button Content="(" Grid.Row="0" Grid.Column="3" Click="Button_Click"/>
+            <Button Content=")" Grid.Row="0" Grid.Column="4" Click="Button_Click"/>
+
+            <!-- Variablen x, y, z -->
+            <Button Content="x" Grid.Row="1" Grid.Column="4" Click="Button_Click"/>
+            <Button Content="y" Grid.Row="2" Grid.Column="4" Click="Button_Click"/>
+            <Button Content="z" Grid.Row="3" Grid.Column="4" Click="Button_Click"/>
+
+        </Grid>
+    </Grid>
+</Window>
