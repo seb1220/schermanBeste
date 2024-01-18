@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <RootNamespace>PA2_UE_Interpreter</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="AbcRobotCore">
+      <HintPath>..\AbcRobotCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
