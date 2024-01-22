@@ -11,57 +11,64 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
-        <!-- Anzeige für den Taschenrechner -->
-        <TextBox Grid.Row="0" Name="Display" Text="" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+        <TextBox Grid.Row="0" Grid.Column="0" Name="Display" Text="" IsReadOnly="True" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+        <Label Grid.Row="0" Grid.Column="1" Name="Result" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" />
 
-        <!-- Tasten für den Taschenrechner -->
-        <Grid Grid.Row="1" Margin="10">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Ziffern 0 bis 9 -->
-            <Button Content="0" Grid.Row="4" Grid.Column="1" Click="Button_Click"/>
-            <Button Content="1" Grid.Row="3" Grid.Column="0" Click="Button_Click"/>
-            <Button Content="2" Grid.Row="3" Grid.Column="1" Click="Button_Click"/>
-            <Button Content="3" Grid.Row="3" Grid.Column="2" Click="Button_Click"/>
-            <Button Content="4" Grid.Row="2" Grid.Column="0" Click="Button_Click"/>
-            <Button Content="5" Grid.Row="2" Grid.Column="1" Click="Button_Click"/>
-            <Button Content="6" Grid.Row="2" Grid.Column="2" Click="Button_Click"/>
-            <Button Content="7" Grid.Row="1" Grid.Column="0" Click="Button_Click"/>
-            <Button Content="8" Grid.Row="1" Grid.Column="1" Click="Button_Click"/>
-            <Button Content="9" Grid.Row="1" Grid.Column="2" Click="Button_Click"/>
+            <Button Content="0" Grid.Row="4" Grid.Column="1" Click="numeric_input"/>
+            <Button Content="1" Grid.Row="3" Grid.Column="0" Click="numeric_input"/>
+            <Button Content="2" Grid.Row="3" Grid.Column="1" Click="numeric_input"/>
+            <Button Content="3" Grid.Row="3" Grid.Column="2" Click="numeric_input"/>
+            <Button Content="4" Grid.Row="2" Grid.Column="0" Click="numeric_input"/>
+            <Button Content="5" Grid.Row="2" Grid.Column="1" Click="numeric_input"/>
+            <Button Content="6" Grid.Row="2" Grid.Column="2" Click="numeric_input"/>
+            <Button Content="7" Grid.Row="1" Grid.Column="0" Click="numeric_input"/>
+            <Button Content="8" Grid.Row="1" Grid.Column="1" Click="numeric_input"/>
+            <Button Content="9" Grid.Row="1" Grid.Column="2" Click="numeric_input"/>
 
             <!-- Dezimaltrennzeichen . oder , -->
-            <Button Content="." Grid.Row="4" Grid.Column="2" Click="Button_Click"/>
+            <Button Content="." Grid.Row="4" Grid.Column="2" Click="numeric_input"/>
 
             <!-- Operatoren +, -, /, *, ^ -->
-            <Button Content="+" Grid.Row="1" Grid.Column="3" Click="Button_Click"/>
-            <Button Content="-" Grid.Row="2" Grid.Column="3" Click="Button_Click"/>
-            <Button Content="/" Grid.Row="3" Grid.Column="3" Click="Button_Click"/>
-            <Button Content="*" Grid.Row="4" Grid.Column="3" Click="Button_Click"/>
-            <Button Content="^" Grid.Row="4" Grid.Column="0" Click="Button_Click"/>
+            <Button Content="+" Grid.Row="1" Grid.Column="3" Click="numeric_input"/>
+            <Button Content="-" Grid.Row="2" Grid.Column="3" Click="numeric_input"/>
+            <Button Content="/" Grid.Row="3" Grid.Column="3" Click="numeric_input"/>
+            <Button Content="*" Grid.Row="4" Grid.Column="3" Click="numeric_input"/>
+            <Button Content="^" Grid.Row="4" Grid.Column="0" Click="numeric_input"/>
 
             <!-- Klammern (, ) -->
-            <Button Content="(" Grid.Row="0" Grid.Column="3" Click="Button_Click"/>
-            <Button Content=")" Grid.Row="0" Grid.Column="4" Click="Button_Click"/>
+            <Button Content="(" Grid.Row="0" Grid.Column="3" Click="numeric_input"/>
+            <Button Content=")" Grid.Row="0" Grid.Column="4" Click="numeric_input"/>
 
             <!-- Variablen x, y, z -->
-            <Button Content="x" Grid.Row="1" Grid.Column="4" Click="Button_Click"/>
-            <Button Content="y" Grid.Row="2" Grid.Column="4" Click="Button_Click"/>
-            <Button Content="z" Grid.Row="3" Grid.Column="4" Click="Button_Click"/>
+            <Button Content="x" Grid.Row="1" Grid.Column="4" Click="numeric_input"/>
+            <Button Content="y" Grid.Row="2" Grid.Column="4" Click="numeric_input"/>
+            <Button Content="z" Grid.Row="3" Grid.Column="4" Click="numeric_input"/>
+            
+            <!-- Event Buttons -->
+            <Button Content="C" Grid.Row="0" Grid.Column="0" Click="numeric_input"/>
+            <Button Content="=" Grid.Row="4" Grid.Column="4" Click="calculate"/>
 
         </Grid>
     </Grid>
