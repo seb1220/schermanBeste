@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-using System.Drawing;
+using System.Windows;
 
 namespace SchiffeVersenken
 {
 
-    internal class GameField
+    public class GameField
     {
         public static int Columns { get; set; }
         public static int Rows { get; set; }
@@ -13,7 +13,7 @@ namespace SchiffeVersenken
         public static int Ships3 { get; set; }
         public static int Ships2 { get; set; }
 
-        public ObservableCollection<Cell> Field;
+        public ObservableCollection<Cell> Field { get; set; }
 
         public GameField()
         {

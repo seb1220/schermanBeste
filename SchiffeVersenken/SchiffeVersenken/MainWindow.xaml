@@ -8,10 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Label x:Name="testLabel" Content="Label" HorizontalAlignment="Left" Margin="26,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="-5.625,-5.231"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="26,57,48,31">
-            <ItemsPanelTemplate>
-                <UniformGrid />
-            </ItemsPanelTemplate>
+
+        <ListBox Name="Ships" Margin="26,57,48,31" ItemsSource="{Binding FriendlyField.Field}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid IsItemsHost="True" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
         </ListBox>
 
     </Grid>

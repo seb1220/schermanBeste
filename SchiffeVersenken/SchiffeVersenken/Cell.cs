@@ -1,8 +1,8 @@
-﻿using System.Drawing;
+﻿using System.Windows;
 
 namespace SchiffeVersenken
 {
-    internal class Cell
+    public class Cell
     {
         public Point pos { get; set; }
         public bool IsShip { get; set; }
@@ -18,5 +18,7 @@ namespace SchiffeVersenken
             IsMiss = false;
             IsShipAllowed = true;
         }
+
+        public override string ToString() => $"Cell at {pos} with IsShip={IsShip}, IsHit={IsHit}, IsMiss={IsMiss}, IsShipAllowed={IsShipAllowed}";
     }
 }
