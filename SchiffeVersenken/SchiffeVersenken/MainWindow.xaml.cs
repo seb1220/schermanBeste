@@ -1,6 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace SchiffeVersenken
 {
@@ -10,39 +10,36 @@ namespace SchiffeVersenken
     public partial class MainWindow : Window
     {
         public GameField FriendlyField { get; set; }
-        public ObservableCollection<Cell> Field { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            this.DataContext = this;
+            // this.DataContext = this;
 
-            Field = new ObservableCollection<Cell>();
-            for (int i = 0; i < 10; ++i)
-            {
-                for (int j = 0; j < 10; ++j)
-                {
-                    Field.Add(new Cell(new Point(i, j)));
-                }
-            }
+            openStartDialog();
 
+            FriendlyShips.DataContext = FriendlyField;
+        }
+
+        private void openStartDialog()
+        {
             StartDialog startdialog = new StartDialog();
-
             startdialog.ShowDialog();
 
-            testLabel.Content = startdialog.Columns;
-
-            GameField.Columns = startdialog.Columns;
-            GameField.Rows = startdialog.Rows;
-            GameField.Ships5 = startdialog.Ships5;
-            GameField.Ships4 = startdialog.Ships4;
-            GameField.Ships3 = startdialog.Ships3;
-            GameField.Ships2 = startdialog.Ships2;
-
+            GameField.setConfig(startdialog.Columns, startdialog.Rows, startdialog.Ships5, startdialog.Ships4, startdialog.Ships3, startdialog.Ships2);
             FriendlyField = new GameField();
+        }
 
-            Debug.WriteLine(FriendlyField.Field.Count);
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            openStartDialog();
+        }
+
+        private void FriendlyShips_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Debug.WriteLine(((ListBox)sender).SelectedItem.ToString());
+            ((Cell)((ListBox)sender).SelectedItem).IsShip = true;
         }
     }
 }
