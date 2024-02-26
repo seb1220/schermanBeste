@@ -10,16 +10,21 @@ namespace SchiffeVersenken
     public partial class MainWindow : Window
     {
         public GameField FriendlyField { get; set; }
+        public GameField EnemyField { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            // this.DataContext = this;
-
             openStartDialog();
 
-            FriendlyShips.DataContext = FriendlyField;
+            FriendlyShips.DataContext = this;
+
+            Debug.WriteLine(GameField.Size);
+            Debug.WriteLine(GameField.Ships5);
+
+            Debug.WriteLine(EnemyField.Field.Count);
+            Debug.WriteLine(FriendlyField.Field.Count);
         }
 
         private void openStartDialog()
@@ -27,8 +32,9 @@ namespace SchiffeVersenken
             StartDialog startdialog = new StartDialog();
             startdialog.ShowDialog();
 
-            GameField.setConfig(startdialog.Columns, startdialog.Rows, startdialog.Ships5, startdialog.Ships4, startdialog.Ships3, startdialog.Ships2);
+            GameField.setConfig(startdialog.Size, startdialog.Ships5, startdialog.Ships4, startdialog.Ships3, startdialog.Ships2);
             FriendlyField = new GameField();
+            EnemyField = new GameField();
         }
 
         private void Reset_Click(object sender, RoutedEventArgs e)
@@ -38,8 +44,24 @@ namespace SchiffeVersenken
 
         private void FriendlyShips_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            Debug.WriteLine(((ListBox)sender).SelectedItem.ToString());
-            ((Cell)((ListBox)sender).SelectedItem).IsShip = true;
+            //Debug.WriteLine(((ListBox)sender).SelectedItem.ToString());
+            //FriendlyField.Field[FriendlyShips.SelectedIndex].IsShip = true;
+            FriendlyShips.UnselectAll();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EnemyShips_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

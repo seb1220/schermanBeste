@@ -13,7 +13,18 @@ namespace SchiffeVersenken
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool IsShip { get { return ship; } set { ship = value; if (value) { Color = Brushes.Gray; } } }
+        public bool IsShip
+        {
+            get { return ship; }
+            set
+            {
+                ship = value;
+                if (value)
+                    Color = Brushes.Gray;
+                if (!value)
+                    Color = Brushes.AliceBlue;
+            }
+        }
         public bool IsHit { get; set; }
         public bool IsMiss { get; set; }
         public bool IsShipAllowed { get; set; }
@@ -43,5 +54,10 @@ namespace SchiffeVersenken
         }
 
         public override string ToString() => $"P:{pos};IsShip={IsShip};IsShipAllowed={IsShipAllowed};IsHit={IsHit};IsMiss={IsMiss};";
+
+        internal void toggleShip()
+        {
+            IsShip = !IsShip;
+        }
     }
 }

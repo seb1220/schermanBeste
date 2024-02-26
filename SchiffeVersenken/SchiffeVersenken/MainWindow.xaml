@@ -7,32 +7,61 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Game">
-                <MenuItem Header="_Reset Gamefield" Click="Reset_Click" />
-            </MenuItem>
-        </Menu>
-    </DockPanel>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Play">
+                    <MenuItem Header="_Host Server" Click="MenuItem_Click" />
+                    <MenuItem Header="_Connect to Server" Click="MenuItem_Click_1" />
+                </MenuItem>
+                <MenuItem Header="_Game">
+                    <MenuItem Header="_Reset Gamefield" Click="Reset_Click" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <ListBox Name="FriendlyShips" Grid.Row="0" ItemsSource="{Binding Field}" SelectionChanged="FriendlyShips_SelectionChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                        <UniformGrid Rows="{Binding Rows}" Columns="{Binding Columns}" />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox Name="EnemyShips" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding EnemyField.Field}" SelectionChanged="EnemyShips_SelectionChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="{Binding EnemyField.Size}" Columns="{Binding EnemyField.Size}" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
                         <TextBlock Text="{Binding}" Background="{Binding Color}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
-    </Grid>
+            <Label Grid.Row="0" Grid.Column="0" Content="abcdefghij"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Size}" />
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Ships5}" />
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Ships4}" />
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Ships3}" />
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Ships2}" />
+
+            <ListBox Name="FriendlyShips" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding FriendlyField.Field}" SelectionChanged="FriendlyShips_SelectionChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="{Binding FriendlyField.Size}" Columns="{Binding FriendlyField.Size}" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Background="{Binding Color}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </StackPanel>
 </Window>
