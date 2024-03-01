@@ -44,8 +44,10 @@ namespace SchiffeVersenken
 
         private void FriendlyShips_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            //Debug.WriteLine(((ListBox)sender).SelectedItem.ToString());
-            //FriendlyField.Field[FriendlyShips.SelectedIndex].IsShip = true;
+            if (FriendlyShips.SelectedIndex == -1)
+                return;
+
+            FriendlyField.Field[FriendlyShips.SelectedIndex].toggleShip();
             FriendlyShips.UnselectAll();
         }
 

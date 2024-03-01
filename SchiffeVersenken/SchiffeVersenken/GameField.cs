@@ -27,6 +27,8 @@ namespace SchiffeVersenken
             StaticPropertyChanged?.Invoke(null, new PropertyChangedEventArgs("Ships2"));
         }
 
+        public bool IsValid { get; private set; } = false;
+
         public ObservableCollection<Cell> Field { get; set; }
 
         public GameField()
@@ -43,7 +45,34 @@ namespace SchiffeVersenken
             {
                 for (int j = 0; j < Size; ++j)
                 {
-                    Field.Add(new Cell(new Point(i, j)));
+                    Field.Add(new Cell(this, new Point(i, j)));
+                }
+            }
+        }
+
+        public void calculateShips()
+        {
+            int ship2 = 0;
+            int ship3 = 0;
+            int ship4 = 0;
+            int ship5 = 0;
+
+            bool last = false;
+            int streak = 0;
+
+            for (int x = 0; x < Size; ++x)
+            {
+                for (int y = 0; y < Size; ++y)
+                {
+                    Cell ship = Field[Size * (y - 1) + x];
+                    if (last && ship.IsShip)
+                    {
+                        if (streak == 0)
+                            streak = 2;
+                        else
+                            streak += 1;
+                    }
+
                 }
             }
         }

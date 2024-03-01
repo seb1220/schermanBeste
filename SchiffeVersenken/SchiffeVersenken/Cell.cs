@@ -7,6 +7,7 @@ namespace SchiffeVersenken
 {
     public class Cell : INotifyPropertyChanged
     {
+        GameField parent;
         public Point pos { get; set; }
 
         bool ship = false;
@@ -19,6 +20,9 @@ namespace SchiffeVersenken
             set
             {
                 ship = value;
+                if (!IsShipAllowed)
+                    return;
+
                 if (value)
                     Color = Brushes.Gray;
                 if (!value)
@@ -39,8 +43,9 @@ namespace SchiffeVersenken
             }
         }
 
-        public Cell(Point pos)
+        public Cell(GameField parent, Point pos)
         {
+            this.parent = parent;
             this.pos = pos;
             IsShip = false;
             IsHit = false;
@@ -58,6 +63,7 @@ namespace SchiffeVersenken
         internal void toggleShip()
         {
             IsShip = !IsShip;
+            parent.calculateShips();
         }
     }
 }
