@@ -44,11 +44,22 @@
 
             <Label Grid.Row="0" Grid.Column="0" Content="abcdefghij"/>
 
-            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Size}" />
-            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Ships5}" />
-            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Ships4}" />
-            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Ships3}" />
-            <Label Grid.Row="1" Grid.Column="0" Content="{Binding FriendlyField.Ships2}" />
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <Label Content="Available Ships" />
+
+                <Label Content="{Binding FriendlyField.Size}" />
+                <Label Content="{Binding FriendlyField.Ships5}" />
+                <Label Content="{Binding FriendlyField.Ships4}" />
+                <Label Content="{Binding FriendlyField.Ships3}" />
+                <Label Content="{Binding FriendlyField.Ships2}" />
+
+                <Label Content="Placed Ships" />
+
+                <Label Content="{Binding FriendlyField.Ships[0]}" ContentStringFormat="Ship2: #{0}" />
+                <Label Content="{Binding FriendlyField.Ships[1]}" />
+                <Label Content="{Binding FriendlyField.Ships[2]}" />
+                <Label Content="{Binding FriendlyField.Ships[3]}" />
+            </StackPanel>
 
             <ListBox Name="FriendlyShips" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding FriendlyField.Field}" SelectionChanged="FriendlyShips_SelectionChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListBox.ItemsPanel>

@@ -19,19 +19,37 @@ namespace SchiffeVersenken
             get { return ship; }
             set
             {
-                ship = value;
                 if (!IsShipAllowed)
                     return;
 
+                ship = value;
+
                 if (value)
                     Color = Brushes.Gray;
-                if (!value)
+                else
                     Color = Brushes.AliceBlue;
             }
         }
         public bool IsHit { get; set; }
         public bool IsMiss { get; set; }
-        public bool IsShipAllowed { get; set; }
+
+        bool _isShipAllowed = true;
+        public bool IsShipAllowed
+        {
+            get { return _isShipAllowed; }
+            set
+            {
+                _isShipAllowed = value;
+
+                if (!value)
+                    Color = Brushes.LightGray;
+                else if (IsShip)
+                    Color = Brushes.Gray;
+                else
+                    Color = Brushes.AliceBlue;
+            }
+        }
+
         SolidColorBrush _Color = Brushes.AliceBlue;
         public SolidColorBrush Color
         {
