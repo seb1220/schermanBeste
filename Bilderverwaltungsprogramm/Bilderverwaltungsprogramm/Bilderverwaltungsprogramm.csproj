@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="icons/*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="icons\move_image.png" />
+    <None Remove="icons\remove_image.png" />
+    <None Remove="icons\rotate-left.png" />
+    <None Remove="icons\rotate-right.png" />
+    <None Remove="icons\rotate180.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+</Project>

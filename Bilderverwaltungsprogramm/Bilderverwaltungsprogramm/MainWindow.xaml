@@ -1,0 +1,69 @@
+﻿<Window x:Class="Bilderverwaltungsprogramm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bilderverwaltungsprogramm"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="local:CustomCommands.NewAlbum" CanExecute="AddAlbum_CanExecute" Executed="AddAlbum_Executed" />
+        <CommandBinding Command="local:CustomCommands.NewPicture" CanExecute="AddPicture_CanExecute" Executed="AddPicture_Executed" />
+        <CommandBinding Command="local:CustomCommands.MovePicture" CanExecute="MovePicture_CanExecute" Executed="MovePicture_Executed" />
+        <CommandBinding Command="local:CustomCommands.RemovePicture" CanExecute="RemovePicture_CanExecute" Executed="RemovePicture_Executed" />
+        <CommandBinding Command="local:CustomCommands.RotateLeft" CanExecute="RotateLeft_CanExecute" Executed="RotateLeft_Executed" />
+        <CommandBinding Command="local:CustomCommands.RotateRight" CanExecute="RotateRight_CanExecute" Executed="RotateRight_Executed" />
+        <CommandBinding Command="local:CustomCommands.Rotate180" CanExecute="Rotate180_CanExecute" Executed="Rotate180_Executed" />
+    </Window.CommandBindings>
+
+    <StackPanel>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Datei" Click="MenuItem_Click">
+                <MenuItem Header="_Neues Album" Command="local:CustomCommands.NewAlbum" >
+                    <MenuItem.Icon>
+                        <Image Source="/icons/add_album.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Bilder hinzufügen">
+                    <MenuItem.Icon>
+                        <Image Source="icons/add_image.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Bilder in Album verschiebenn">
+                    <MenuItem.Icon>
+                        <Image Source="icons/move_image.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Bilder löschen">
+                    <MenuItem.Icon>
+                        <Image Source="icons/remove_image.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Bearbeiten">
+                <MenuItem Header="_90° im Uhrzeigersinn rotieren">
+                    <MenuItem.Icon>
+                        <Image Source="icons/rotate-right.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_90° gegen den Uhrzeigersinn rotieren">
+                    <MenuItem.Icon>
+                        <Image Source="icons/rotate-left.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_180° rotieren">
+                    <MenuItem.Icon>
+                        <Image Source="icons/rotate180.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+    </DockPanel>
+        <Label Name="label1" Content="abc"/>
+        <ComboBox Name="albumSelector"/>
+        <Label Name="temp" Content="todo picture list"/>
+    </StackPanel>
+
+</Window>
