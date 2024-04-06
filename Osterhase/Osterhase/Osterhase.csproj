@@ -1,0 +1,35 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="linq2db.SQLite.MS" Version="5.4.0" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<None Update="Models\MyDatabase.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>MyDatabase.generated.cs</LastGenOutput>
+		</None>
+		<None Update="Models\Person.db">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Models\MyDatabase.generated.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>MyDatabase.tt</DependentUpon>
+		</Compile>
+	</ItemGroup>
+</Project>

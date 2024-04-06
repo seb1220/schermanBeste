@@ -1,13 +1,12 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Bilderverwaltungsprogramm
@@ -18,14 +17,14 @@ namespace Bilderverwaltungsprogramm
     public partial class MainWindow : Window
     {
         public List<string> Albums { get; set; }
-        public List<Image> Images { get; set; }
+        public ObservableCollection<CustomImage> Images { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
             Albums = new List<string>();
-            Images = new List<Image>();
+            Images = new ObservableCollection<CustomImage>();
 
             this.DataContext = this;
         }
@@ -71,7 +70,7 @@ namespace Bilderverwaltungsprogramm
             string zipPath = @".\result.zip";
 
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "PDF files (.)|*.zip";
+            ofd.Filter = "ZIP files (.)|*.zip";
             ofd.ShowDialog();
 
             if (ofd.FileName.EndsWith(".zip"))
@@ -100,7 +99,7 @@ namespace Bilderverwaltungsprogramm
                         // Ordinal match is safest, case-sensitive volumes can be mounted within volumes that
                         // are case-insensitive.
                         if (destinationPath.StartsWith(extractPath, StringComparison.Ordinal))
-                            entry.ExtractToFile(destinationPath);
+                            entry.ExtractToFile(destinationPath, true);
                     }
                 }
             }
@@ -110,33 +109,88 @@ namespace Bilderverwaltungsprogramm
 
         private void MovePicture_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            if (ImageBox.SelectedIndex >= 0)
+                e.CanExecute = true;
         }
 
         private void MovePicture_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            var dialog = new SelectAlbumDialog(Albums, (string)albumSelector.SelectedValue);
 
+            // Display the dialog box and read the response
+            bool? result = dialog.ShowDialog();
+
+            if (result == false)
+                return;
+
+            string destination_album = dialog.Albums[dialog.SelectedAlbum];
+
+            foreach (var image in ImageBox.SelectedItems)
+            {
+                if (image == null)
+                    continue;
+
+                string source_path = ((CustomImage)image).Path;
+                string file_name = source_path.Split('/')[source_path.Split('/').Length - 2];
+                string destination_path = "image/" + destination_album + "/" + file_name;
+
+                Debug.WriteLine(source_path);
+                Debug.WriteLine(destination_path);
+
+                Directory.Move(source_path, destination_path);
+            }
+
+            updatedImages();
         }
 
         private void RemovePicture_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            if (ImageBox.SelectedIndex >= 0)
+                e.CanExecute = true;
         }
 
         private void RemovePicture_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            foreach (var image in ImageBox.SelectedItems)
+            {
+                if (image == null)
+                    continue;
 
+                Directory.Delete(((CustomImage)image).Path);
+            }
+
+            updatedImages();
         }
 
         // EDIT MENU //
         private void RotateLeft_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            if (ImageBox.SelectedIndex >= 0)
+                e.CanExecute = true;
         }
 
         private void RotateLeft_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            foreach (var srcImage in ImageBox.SelectedItems)
+            {
+                if (srcImage == null)
+                    continue;
 
+                CustomImage customImage = (CustomImage)srcImage;
+
+                BitmapImage image = customImage.ImageSrc;
+
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.UriSource = new Uri(customImage.Path, UriKind.Relative);
+
+                //image.BeginInit();
+                // here
+                image.Rotation = Rotation.Rotate270;
+
+                //image.EndInit();
+            }
+
+            updatedImages();
         }
 
         private void RotateRight_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -167,23 +221,20 @@ namespace Bilderverwaltungsprogramm
 
         private void updatedImages()
         {
+            Images.Clear();
             foreach (var file in Directory.GetFiles("images/" + albumSelector.Text + "/"))
             {
-                // Debug.WriteLine(file);
-                var image = new Image();
-                Stream imageStreamSource = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read);
-                PngBitmapDecoder decoder = new PngBitmapDecoder(imageStreamSource, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
-                BitmapSource bitmapSource = decoder.Frames[0];
-                image.Source = bitmapSource;
-                image.Width = 100;
-                image.Height = 100;
-                image.Stretch = Stretch.Fill;
-                Images.Add(image);
+                var names = file.Replace('.', '/').Split('/');
+                var name = names[names.Length - 2];
+                var bitmap = new BitmapImage(new Uri(file, UriKind.Relative));
 
-                Debug.WriteLine("Source: " + image.Source);
-                Debug.WriteLine("Name: " + image.Name);
-                Debug.WriteLine("Name: ");
+                Images.Add(new CustomImage(file, name, bitmap));
+
+                Debug.WriteLine(file);
+                Debug.WriteLine(name);
+                Debug.WriteLine(bitmap.Width);
             }
+            Debug.WriteLine(Images.Count);
         }
     }
 }

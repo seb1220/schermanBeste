@@ -18,54 +18,54 @@
     </Window.CommandBindings>
 
     <StackPanel>
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Datei">
-                <MenuItem Header="_Neues Album" Command="local:CustomCommands.NewAlbum" >
-                    <MenuItem.Icon>
-                        <Image Source="/icons/add_album.png" />
-                    </MenuItem.Icon>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Datei">
+                    <MenuItem Header="_Neues Album" Command="local:CustomCommands.NewAlbum" >
+                        <MenuItem.Icon>
+                            <Image Source="/icons/add_album.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                        <MenuItem Header="_Bilder hinzufügen" Command="local:CustomCommands.NewPicture" >
+                        <MenuItem.Icon>
+                            <Image Source="icons/add_image.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                        <MenuItem Header="_Bilder in Album verschiebenn" Command="local:CustomCommands.MovePicture">
+                        <MenuItem.Icon>
+                            <Image Source="icons/move_image.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                        <MenuItem Header="_Bilder löschen" Command="local:CustomCommands.RemovePicture">
+                        <MenuItem.Icon>
+                            <Image Source="icons/remove_image.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
-                    <MenuItem Header="_Bilder hinzufügen" Command="local:CustomCommands.NewPicture" >
-                    <MenuItem.Icon>
-                        <Image Source="icons/add_image.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                    <MenuItem Header="_Bilder in Album verschiebenn" Command="local:CustomCommands.MovePicture">
-                    <MenuItem.Icon>
-                        <Image Source="icons/move_image.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                    <MenuItem Header="_Bilder löschen" Command="local:CustomCommands.RemovePicture">
-                    <MenuItem.Icon>
-                        <Image Source="icons/remove_image.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Bearbeiten">
+                <MenuItem Header="_Bearbeiten">
                     <MenuItem Header="_90° im Uhrzeigersinn rotieren" Command="local:CustomCommands.RotateRight">
-                    <MenuItem.Icon>
-                        <Image Source="icons/rotate-right.png" />
-                    </MenuItem.Icon>
+                        <MenuItem.Icon>
+                            <Image Source="icons/rotate-right.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                        <MenuItem Header="_90° gegen den Uhrzeigersinn rotieren" Command="local:CustomCommands.RotateLeft">
+                        <MenuItem.Icon>
+                            <Image Source="icons/rotate-left.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                        <MenuItem Header="_180° rotieren" Command="local:CustomCommands.Rotate180">
+                        <MenuItem.Icon>
+                            <Image Source="icons/rotate180.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
-                    <MenuItem Header="_90° gegen den Uhrzeigersinn rotieren" Command="local:CustomCommands.RotateLeft">
-                    <MenuItem.Icon>
-                        <Image Source="icons/rotate-left.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                    <MenuItem Header="_180° rotieren" Command="local:CustomCommands.Rotate180">
-                    <MenuItem.Icon>
-                        <Image Source="icons/rotate180.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-        </Menu>
-    </DockPanel>
+            </Menu>
+        </DockPanel>
         <ComboBox Name="albumSelector" ItemsSource="{Binding Albums}" SelectionChanged="albumSelector_SelectionChanged"/>
         
         <Label Name="temp" Content="todo picture list"/>
 
-        <ListBox Name="FriendlyShips" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Images}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListBox Name="ImageBox" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Images}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid />
@@ -74,7 +74,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Image Source="{Binding Source}" Width="100" Height="100" />
+                        <Image Source="{Binding ImageSrc}" Width="100" Height="100" />
                         <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </StackPanel>
                 </DataTemplate>
