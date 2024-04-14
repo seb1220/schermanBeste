@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 
@@ -6,28 +7,49 @@ namespace SchiffeVersenken
 {
     internal class NetworkManager
     {
-        bool isServer = false;
         int port = 42069;
         IPAddress ip;
-        public NetworkManager(bool server, string ip = "")
+        GameManager gm;
+        public ReceiverImpl RX { get; set; }
+        public Transfer TX { get; set; }
+
+        public NetworkManager(GameManager gm, bool isServer, string ip = "")
         {
-            isServer = server;
+            this.gm = gm;
             if (ip == "")
                 this.ip = IPAddress.Parse(GetLocalIPAddress());
             else
                 this.ip = IPAddress.Parse(ip);
+
+            RX = new ReceiverImpl(gm);
+
+            if (isServer)
+                StartServer();
+            else
+                ConnectClient();
         }
 
         void StartServer()
         {
+            Debug.WriteLine($"Creating Server on: {ip} : {port}");
             TcpListener tcpListener = new TcpListener(ip, port);
             tcpListener.Start();
+
+            TcpClient tcpClient = tcpListener.AcceptTcpClient();
+            Debug.WriteLine("Client connected ESTABLISHED");
+
+            TX = new Transfer(tcpClient, RX);
+            TX.Start();
         }
 
-        void StartClient()
+        void ConnectClient()
         {
+            Debug.WriteLine($"Connect client on {ip} : {port}");
             TcpClient tcpClient = new TcpClient();
             tcpClient.Connect(ip, port);
+
+            TX = new Transfer(tcpClient, RX);
+            TX.Start();
         }
 
         private string GetLocalIPAddress()

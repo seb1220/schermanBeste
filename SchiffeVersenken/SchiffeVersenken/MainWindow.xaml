@@ -10,8 +10,8 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_Play">
-                    <MenuItem Header="_Host Server" Click="MenuItem_Click" />
-                    <MenuItem Header="_Connect to Server" Click="MenuItem_Click_1" />
+                    <MenuItem Header="_Host Server" Click="HostServer_Click" />
+                    <MenuItem Header="_Connect to Server" Click="ConnectToServer_Click" />
                 </MenuItem>
                 <MenuItem Header="_Game">
                     <MenuItem Header="_Reset Gamefield" Click="Reset_Click" />
@@ -20,8 +20,8 @@
         </DockPanel>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -29,10 +29,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ListBox Name="EnemyShips" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding EnemyField.Field}" SelectionChanged="EnemyShips_SelectionChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox Name="EnemyShips" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Field}" SelectionChanged="EnemyShips_SelectionChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Rows="{Binding EnemyField.Size}" Columns="{Binding EnemyField.Size}" />
+                        <UniformGrid Rows="{Binding Size}" Columns="{Binding Size}" />
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
@@ -42,7 +42,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="abcdefghij"/>
+            <Button Grid.Row="0" Grid.Column="0" Content="Shoot" Margin="0,0,0,58" Click="Shoot_Click" />
 
             <StackPanel Grid.Row="1" Grid.Column="0">
                 <Label Content="Available Ships" />
@@ -61,10 +61,10 @@
                 <Label Content="{Binding FriendlyField.Ships[3]}" />
             </StackPanel>
 
-            <ListBox Name="FriendlyShips" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding FriendlyField.Field}" SelectionChanged="FriendlyShips_SelectionChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox Name="FriendlyShips" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Field}" SelectionChanged="FriendlyShips_SelectionChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Rows="{Binding FriendlyField.Size}" Columns="{Binding FriendlyField.Size}" />
+                        <UniformGrid Rows="{Binding Size}" Columns="{Binding Size}" />
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>

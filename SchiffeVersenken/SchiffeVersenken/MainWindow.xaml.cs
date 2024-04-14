@@ -12,13 +12,17 @@ namespace SchiffeVersenken
         public GameField FriendlyField { get; set; }
         public GameField EnemyField { get; set; }
 
+        public GameManager gm { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            gm = new GameManager();
 
             openStartDialog();
 
-            FriendlyShips.DataContext = this;
+            FriendlyShips.DataContext = FriendlyField;
+            EnemyShips.DataContext = EnemyField;
 
             Debug.WriteLine(GameField.Size);
             Debug.WriteLine(GameField.Ships5);
@@ -51,19 +55,28 @@ namespace SchiffeVersenken
             FriendlyShips.UnselectAll();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void HostServer_Click(object sender, RoutedEventArgs e)
         {
-
+            gm.StartGame(true);
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void ConnectToServer_Click(object sender, RoutedEventArgs e)
         {
-
+            gm.StartGame(false);
         }
 
         private void EnemyShips_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Shoot_Click(object sender, RoutedEventArgs e)
+        {
+            int field = EnemyShips.SelectedIndex;
+
+            if (field == -1) return;
+
+            gm.Shoot(field);
         }
     }
 }
