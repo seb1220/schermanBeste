@@ -33,6 +33,7 @@ namespace PA3_Client
         public void StartGame(int width, int height, int mines)
         {
             Debug.WriteLine("Starting Game");
+            Field.ClearField();
             networkManager.ConnectClient();
 
             MSG msg = new MSG();
@@ -99,6 +100,9 @@ namespace PA3_Client
 
             Field.CellHit(lastPick, -2);
             MessageBox.Show(won ? "You won!" : "You lost!");
+
+            State = State.Finished;
+            GameNumber = 0;
         }
 
         public void Reconnect()

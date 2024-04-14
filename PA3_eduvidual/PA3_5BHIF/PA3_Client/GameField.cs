@@ -72,12 +72,20 @@ namespace PA3_Client
             cell.Value = nearbyMines;
         }
 
+        public void ClearField()
+        {
+            foreach (Cell cell in Field)
+            {
+                cell.Value = -1;
+            }
+        }
+
         private Cell CellByCoord(int x, int y)
         {
             foreach (Cell cell in Field)
             {
                 if (cell == null) continue;
-                if (cell.pos.X == x && cell.pos.Y == y) return cell;
+                if (cell.X == x && cell.Y == y) return cell;
             }
 
             return null;

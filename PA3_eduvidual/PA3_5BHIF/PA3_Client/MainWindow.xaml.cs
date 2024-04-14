@@ -10,7 +10,8 @@ namespace PA3_Client
 
     public class Cell : INotifyPropertyChanged
     {
-        public System.Drawing.Point pos { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
@@ -97,7 +98,8 @@ namespace PA3_Client
 
         public Cell(System.Drawing.Point pos, int value)
         {
-            this.pos = pos;
+            X = pos.X;
+            Y = pos.Y;
             this.Value = value;
         }
 
@@ -159,26 +161,27 @@ namespace PA3_Client
                 return;
 
             Debug.WriteLine("Sending Pick");
-            gm.Hit(cell.pos.X, cell.pos.Y);
+            gm.Hit(cell.X, cell.Y);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (gm.GameNumber == 0)
+            {
+                File.Delete("field.xml");
+                File.Delete("gm.xml");
                 return;
-
-            File.Delete("field.xml");
-            File.Delete("gm.xml");
+            }
 
             XmlSerializer fieldSerializer = new XmlSerializer(typeof(GameField));
             XmlSerializer gameSerializer = new XmlSerializer(typeof(GameManager));
 
-            using (StreamWriter writer = new StreamWriter("field.xml"))
+            using (FileStream writer = new FileStream("field.xml", FileMode.Create))
             {
                 fieldSerializer.Serialize(writer, Field);
             }
 
-            using (StreamWriter writer = new StreamWriter("gm.xml"))
+            using (FileStream writer = new FileStream("gm.xml", FileMode.Create))
             {
                 gameSerializer.Serialize(writer, gm);
             }
@@ -193,13 +196,14 @@ namespace PA3_Client
 
             if (File.Exists("field.xml"))
             {
-                using (StreamReader reader = new StreamReader("field.xml"))
+                using (FileStream reader = new FileStream("field.xml", FileMode.Open))
                 {
                     Field = (GameField)fieldSerializer.Deserialize(reader);
                 }
-
+                for (int i = 0; i < Field.Height * Field.Width; i++)
+                    Field.Field.RemoveAt(0);
                 Debug.WriteLine("asldfjaslöjdflasjfkljdf0");
-                Debug.WriteLine(Field.Field[0].Value);
+                Debug.WriteLine($"Count: {Field.Field.Count}");
             }
             else
             {
@@ -212,7 +216,7 @@ namespace PA3_Client
 
             if (File.Exists("gm.xml"))
             {
-                using (StreamReader reader = new StreamReader("gm.xml"))
+                using (FileStream reader = new FileStream("gm.xml", FileMode.Open))
                 {
                     gm = (GameManager)gameSerializer.Deserialize(reader);
                 }
