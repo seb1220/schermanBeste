@@ -1,0 +1,36 @@
+﻿<Window x:Class="PA3_UE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PA3_UE"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Button Name="StartGame" Content="Start Game" Click="StartGame_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            
+            <Label Content="Size:" />
+            <Slider Name="SizeSlider" Value="5" Maximum="10" Minimum="4" ValueChanged="SizeSlider_ValueChanged" />
+            <Label Name="SizeDispay" Content="{Binding Size,UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+
+        <ListBox Name="FieldComponent" Grid.Column="1" ItemsSource="{Binding Field}" SelectionChanged="FieldComponent_SelectionChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="{Binding Size}" Columns="{Binding Size}" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Background="{Binding Color}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
