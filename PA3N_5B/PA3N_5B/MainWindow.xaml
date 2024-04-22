@@ -1,0 +1,72 @@
+﻿<Window x:Class="PA3N_5B.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PA3_5C"
+        mc:Ignorable="d"
+        Title="Wordl" Height="450" Width="800"
+        Closing="Window_Closing">
+    <DockPanel>
+        <StackPanel Width="200" DockPanel.Dock="Right">
+            <TextBlock Margin="10" FontSize="16">Statistik</TextBlock>
+            <TextBlock Margin="10">Nicht erraten</TextBlock>
+            <TextBlock Name="NotGussedText" Text="{Binding NotGuessed}" Margin="10 0"></TextBlock>
+            <TextBlock Margin="10">Beim ersten Versuch</TextBlock>
+            <TextBlock Name="FirstTryText" Text="{Binding FirstTry}" Margin="10 0"></TextBlock>
+            <TextBlock Margin="10">Beim zweiten Versuch</TextBlock>
+            <TextBlock Name="SecondTryText" Text="{Binding SecondTry}" Margin="10 0"></TextBlock>
+            <TextBlock Margin="10">Beim dritten Versuch</TextBlock>
+            <TextBlock Name="ThirdTryText" Text="{Binding ThirdTry}" Margin="10 0"></TextBlock>
+            <TextBlock Margin="10">Beim vierten Versuch</TextBlock>
+            <TextBlock Name="FourthTryText" Text="{Binding FourthTry}" Margin="10 0"></TextBlock>
+            <TextBlock Margin="10">Beim fünften Versuch</TextBlock>
+            <TextBlock Name="FifthTryText" Text="{Binding FifthTry}" Margin="10 0"></TextBlock>
+            <TextBlock Margin="10">Beim sechsten Versuch</TextBlock>
+            <TextBlock Name="SixthTryText" Text="{Binding SixthTry}" Margin="10 0"></TextBlock>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Name="NewGameButton" Grid.ColumnSpan="2" Click="NewGameButton_Click">Neues Spiel</Button>
+            <TextBox Name="GuessInput" Grid.Row="1"></TextBox>
+            <Button Name="GuessesButton" Grid.Row="1" Grid.Column="1" Click="GuessesButton_Click">Raten</Button>
+            <ListBox Name="Guesses" ItemsSource="{Binding}" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5" Rows="6"></UniformGrid>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border x:Name="Cell" >
+                            <Viewbox Stretch="Uniform">
+                                <TextBlock Text="{Binding Letter}"></TextBlock>
+                            </Viewbox>
+                        </Border>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Incorrect}" Value="True">
+                                <Setter TargetName="Cell" Property="Border.Background" Value="LightGray"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding WrongPosition}" Value="True">
+                                <Setter TargetName="Cell" Property="Border.Background" Value="Bisque"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CorrectPosition}" Value="True">
+                                <Setter TargetName="Cell" Property="Border.Background" Value="LightGreen"></Setter>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        
+        
+    </DockPanel>
+</Window>

@@ -1,6 +1,7 @@
 ﻿using LinqToDB;
 using LinqToDB.Data;
 using LinqToDB.Mapping;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
@@ -30,6 +31,8 @@ namespace DBDEMO
             //Debug.WriteLine("Name: " + Books.Count());
 
             TestDaten.ItemsSource = db.GetTable<Book>();
+
+            Debug.WriteLine("First itme: " + db.GetTable<Book>().Select(book => book.Name));
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)

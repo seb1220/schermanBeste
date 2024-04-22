@@ -1,0 +1,1 @@
+dotnet linq2db scaffold -i database.json

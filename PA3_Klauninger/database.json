@@ -1,0 +1,8 @@
+{
+    "general": {
+        "provider": "SQLite",
+        "connection": "Data Source=words.db",
+        "output": "Generated",
+        "overwrite": true
+    }
+}

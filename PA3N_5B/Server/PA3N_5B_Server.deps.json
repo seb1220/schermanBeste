@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "PA3N_5B_Server/1.0.0": {
+        "runtime": {
+          "PA3N_5B_Server.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PA3N_5B_Server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

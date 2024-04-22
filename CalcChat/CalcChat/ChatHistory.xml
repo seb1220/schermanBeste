@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Entry>
+    <Username>Kevin</Username>
+    <CalcExpression>2+3</CalcExpression>
+    <CalcResult>5</CalcResult>
+    <Time>2024-04-06T14:46:49.3846073+02:00</Time>
+  </Entry>
+  <Entry>
+    <Username>Kevin</Username>
+    <CalcExpression>5*5</CalcExpression>
+    <CalcResult>25</CalcResult>
+    <Time>2024-04-06T14:46:54.4867927+02:00</Time>
+  </Entry>
+</ArrayOfEntry>

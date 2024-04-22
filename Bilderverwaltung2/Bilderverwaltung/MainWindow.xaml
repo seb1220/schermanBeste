@@ -1,0 +1,84 @@
+﻿<Window x:Class="Bilderverwaltung.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bilderverwaltung"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    
+        <Window.CommandBindings>
+            <CommandBinding Command="local:CustomCommands.New" CanExecute="NewCommand_CanExecute" Executed="NewCommand_Executed"/>
+            <CommandBinding Command="local:CustomCommands.Hinzufuegen" CanExecute="HinzufuegenCommand_CanExecute" Executed="HinzufuegenCommand_Executed"/>
+            <CommandBinding Command="local:CustomCommands.Verschieben" CanExecute="VerschiebenCommand_CanExecute" Executed="VerschiebenCommand_Executed"/>
+            <CommandBinding Command="local:CustomCommands.Delete" CanExecute="DeleteCommand_CanExecute" Executed="DeleteCommand_Executed"/>
+            <CommandBinding Command="local:CustomCommands.RotateImUhr" CanExecute="RotateImUhrCommand_CanExecute" Executed="RotateImUhrCommand_Executed"/>
+            <CommandBinding Command="local:CustomCommands.RotateGeUhr" CanExecute="RotateGeUhrCommand_CanExecute" Executed="RotateGeUhrCommand_Executed"/>
+            <CommandBinding Command="local:CustomCommands.Rotate" CanExecute="RotateCommand_CanExecute" Executed="RotateCommand_Executed"/>
+        </Window.CommandBindings>
+
+        <Grid>
+            <DockPanel>
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="_Datei">
+                        <MenuItem Header="_Neues Album" Command="local:CustomCommands.New"/>
+                        <MenuItem Header="_Bilder hinzufügen" Command="local:CustomCommands.Hinzufuegen"/>
+                        <MenuItem Header="_Bilder in Album verschieben" Command="local:CustomCommands.Verschieben"/>
+                        <MenuItem Header="_Bilder löschen" Command="local:CustomCommands.Delete"/>
+                    </MenuItem>
+
+                    <MenuItem Header="_Bearbeiten">
+                        <MenuItem Header="_90° im Uhrzeigersinn rotieren" Command="local:CustomCommands.RotateImUhr">
+                        <MenuItem.Icon>
+                            <Image Source="C:\Users\kevin\Downloads\180-degrees-rotation-icon.jpg" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_90° gegen den Uhrzeigersinn rotieren" Command="local:CustomCommands.RotateGeUhr">
+                        <MenuItem.Icon>
+                            <Image Source="C:\Users\kevin\Downloads\180-degrees-rotation-icon.jpg" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_180° Rotieren" Command="local:CustomCommands.Rotate">
+                        <MenuItem.Icon>
+                            <Image Source="C:\Users\kevin\Downloads\180-degrees-rotation-icon.jpg" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    </MenuItem>
+
+                </Menu>
+
+            <Grid DockPanel.Dock="Bottom" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="260"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Album: " Grid.Row="0" Grid.Column="0" Margin="10"/>
+                <ComboBox Name="cbAlbum"  Grid.Column="1" Grid.Row="0" Width="250" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="cbAlbum_SelectionChanged" ItemsSource="{Binding Albums}" DisplayMemberPath="Name" Margin="10"/>
+                <Label Content="Verschieben nach:  " Grid.Row="1" Grid.Column="0" Margin="10"/>
+                <ComboBox Name="cbAlbumDestination"  Grid.Column="1" Grid.Row="1" Width="250" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding Albums}" DisplayMemberPath="Name" Margin="10"/>
+                <Button Name="btnVerschieben" Grid.Row="1" Grid.Column="2" Content="Verschieben" Command="local:CustomCommands.Verschieben" Margin="10" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                
+                <ListBox Name="listboxPic" Grid.Row="2" Grid.ColumnSpan="3" Margin="10" SelectionMode="Multiple">
+                    
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding Path=Path}" Width="100" Height="100"/>
+                                <TextBlock Text="{Binding Path=Name}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate> 
+                    
+                </ListBox>
+            </Grid>
+            </DockPanel>
+        </Grid>
+</Window>

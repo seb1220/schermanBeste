@@ -19,7 +19,7 @@
             <Button Name="btnAdd" Width="200" Height="30" Margin="10" Click="btnAdd_Click">Add</Button>
             <Button Name="btnUpdate" Width="200" Height="30" Margin="10" Click="btnAdd_Click_1">Update</Button>
         </StackPanel>
-        <ListBox Name="TestDaten" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1">
+        <ListBox Name="TestDaten" ItemsSource="{Binding}" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
