@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 
 #include "drivers.h"
+#include "results.h"
+#include "constructors.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,9 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
     list_driver drivers;
     qx::dao::fetch_by_query(query, drivers);
 
-    for (int i = 0; i < drivers.count(); i++)
+    for (int i = 0; i < drivers.size(); i++)
     {
-        ui->displayedDrivers->addItem(drivers.getByIndex(i)->forename + " " + drivers.getByIndex(i)->surname);
+        ui->displayedDrivers->addItem(drivers.at(i)->forename + " " + drivers.at(i)->surname);
     }
 }
 
@@ -39,8 +41,35 @@ void MainWindow::on_searchDriver_textChanged(const QString &arg1)
     qx::dao::fetch_by_query(query, drivers);
 
     ui->displayedDrivers->clear();
-    for (int i = 0; i < drivers.count(); i++)
+    for (unsigned long i = 0; i < drivers.size(); i++)
     {
-        ui->displayedDrivers->addItem(drivers.getByIndex(i)->forename + " " + drivers.getByIndex(i)->surname);
+        ui->displayedDrivers->addItem(drivers.at(i)->forename + " " + drivers.at(i)->surname);
     }
+}
+
+void MainWindow::on_displayedDrivers_currentIndexChanged(int index)
+{
+    if (index == -1)
+    {
+        ui->displayedDrivers->setCurrentIndex(0);
+        return;
+    }
+
+    qx::QxSqlQuery query("where forename || ' ' || surname = '" + ui->displayedDrivers->currentText() + "'");
+
+    list_driver drivers;
+    qx::dao::fetch_by_query_with_all_relation(query, drivers);
+
+    ui->driverName->setText(drivers.at(0)->forename + " " + drivers.at(0)->surname);
+    ui->driverBDay->setText(drivers.at(0)->dob);
+
+    list_result results = drivers.at(0)->resultX;
+    ui->driverRaces->setText(QString::number(results.size()));
+
+    ui->driverConstructors->setText(QString::number(results.at(0)->constructor->id));
+    // QString constructors = "";
+    // for (auto result : results) {
+    //     constructors += result->constructor->name + ", ";
+    // }
+    // ui->driverConstructors->setText(constructors);
 }

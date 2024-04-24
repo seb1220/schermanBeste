@@ -22,6 +22,6 @@ QX_REGISTER_PRIMARY_KEY(constructors, long)
 QX_REGISTER_HPP_QX_FONE(constructors, qx::trait::no_base_class_defined, 0)
 
 typedef std::shared_ptr<constructors> constructor_ptr;
-typedef QMap<QString, constructor_ptr> list_constructor;
+typedef std::vector<constructor_ptr> list_constructor;
 
 #endif // CONSTRUCTORS_H

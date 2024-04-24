@@ -7,6 +7,8 @@ class airline;
 
 class QX_FLUG_DLL_EXPORT alliance
 {
+typedef std::shared_ptr<airline> airline_ptr;
+typedef QMap<QString, airline_ptr> list_airline;
 public:
     long id;
     QString name;

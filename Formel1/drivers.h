@@ -12,7 +12,7 @@ public:
     long id;
     QString forename;
     QString surname;
-    QDate dob;
+    QString dob;
 
     list_result resultX;
 
@@ -24,6 +24,6 @@ QX_REGISTER_PRIMARY_KEY(drivers, long)
 QX_REGISTER_HPP_QX_FONE(drivers, qx::trait::no_base_class_defined, 0)
 
 typedef std::shared_ptr<drivers> driver_ptr;
-typedef qx::QxCollection<QString, driver_ptr> list_driver;
+typedef std::vector<driver_ptr> list_driver;
 
 #endif // DRIVERS_H
