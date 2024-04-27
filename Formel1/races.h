@@ -23,6 +23,6 @@ QX_REGISTER_PRIMARY_KEY(races, long)
 QX_REGISTER_HPP_QX_FONE(races, qx::trait::no_base_class_defined, 0)
 
 typedef std::shared_ptr<races> race_ptr;
-typedef QMap<QString, race_ptr> list_race;
+typedef std::vector<race_ptr> list_race;
 
 #endif // RACES_H

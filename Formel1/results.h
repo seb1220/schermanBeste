@@ -22,6 +22,6 @@ QX_REGISTER_PRIMARY_KEY(results, long)
 QX_REGISTER_HPP_QX_FONE(results, qx::trait::no_base_class_defined, 0)
 
 typedef std::shared_ptr<results> result_ptr;
-typedef QMap<QString, result_ptr> list_result;
+typedef std::vector<result_ptr> list_result;
 
 #endif // RESULTS_H
