@@ -19,15 +19,20 @@ namespace Osterhase2
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Personen> PersonList;
+        List<Personen> personList;
+        DataConnection dataConnection;
+
+        public string InputName {  get; set; }
+        public double InputLongitude { get; set; } = 16.209652;
+        public double InputLatitude { get; set; } = 47.786898;
         public MainWindow()
         {
             InitializeComponent();
 
-            DataConnection dataConnection = new DataConnection("SQLite", "Data Source = OsterhaseDB.db");
+            dataConnection = new DataConnection("SQLite", "Data Source = OsterhaseDB.db");
 
-            PersonList = dataConnection.GetTable<Personen>().ToList();
-            foreach (Personen person in PersonList)
+            personList = dataConnection.GetTable<Personen>().ToList();
+            foreach (Personen person in personList)
                 Console.WriteLine(person);
 
             //Database database = new Database();
@@ -37,23 +42,48 @@ namespace Osterhase2
             //foreach (var person in testPerson)
             //    Console.WriteLine(person.Name);
 
-            MapCanvas.Children.Clear();
-            PersonList.ForEach(p =>
-            {
-                Rectangle rectangle = new Rectangle();
-                rectangle.Width = 30;
-                rectangle.Height = 30;
-                rectangle.Fill = Brushes.Blue;
-
-                Canvas.SetTop(rectangle, 10);
-                Canvas.SetLeft(rectangle, 100);
-                MapCanvas.Children.Add(rectangle);
-            });
+            this.DataContext = this;
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            
+            RefreshPeople();
         }
+
+        private void RefreshPeople()
+        {
+            MapCanvas.Children.Clear();
+            personList.ForEach(p =>
+            {
+                Rectangle rectangle = new Rectangle();
+                rectangle.Width = 40;
+                rectangle.Height = 40;
+                rectangle.Fill = Brushes.Blue;
+
+                Canvas.SetBottom(rectangle, GetY((double)p.Latitude));
+                Canvas.SetLeft(rectangle, GetX((double)p.Longitude));
+                MapCanvas.Children.Add(rectangle);
+            });
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e) // todo: maybe custom command for disable when name = ""
+        {
+            dataConnection.Insert(new Personen() { Name = InputName, Longitude = (decimal)InputLongitude, Latitude = (decimal)InputLatitude });
+            personList = dataConnection.GetTable<Personen>().ToList();
+            RefreshPeople();
+        }
+
+        private double GetX(double longitude)
+        {
+            return ((longitude - 16.209652) / (16.281017 - 16.209652)) * MapCanvas.ActualWidth; // TODO: remvoe widht of rect
+        }
+
+        private double GetY (double latitude) 
+        {
+            return ((latitude - 47.786898) / (47.846533 - 47.786898)) * MapCanvas.ActualHeight; // TODO: remvoe widht of rect
+        }
+
+
+        // TODO for ue 3 -> watch wikipedea graph video and find out how the graph was sliced into parts
     }
 }

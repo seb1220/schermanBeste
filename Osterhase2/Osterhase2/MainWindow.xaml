@@ -8,7 +8,31 @@
         Title="MainWindow" Height="817" Width="1000"
         SizeChanged="Window_SizeChanged">
     <Grid>
-        <Canvas Name="MapCanvas">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="7*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Content="Name" Grid.Row="0" Grid.Column="0" />
+        <Label Content="Longitude" Grid.Row="0" Grid.Column="1" />
+        <Label Content="Latitude" Grid.Row="0" Grid.Column="2" />
+
+        <TextBox Name="TbName" Text="{Binding InputName}" Grid.Row="1" Grid.Column="0" />
+        <TextBox Name="TbLongitude" Text="{Binding InputLongitude}" Grid.Row="1" Grid.Column="1" />
+        <TextBox Name="TbLatitude" Text="{Binding InputLatitude}" Grid.Row="1" Grid.Column="2" />
+
+        <Button x:Name="Add" Click="Add_Click" Content="Add" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
+
+        <Canvas Name="MapCanvas" Grid.Column="3" Grid.Row="0" Grid.RowSpan="4" >
             <Canvas.Background>
                 <ImageBrush ImageSource="Stadtplan-Wiener-Neustadt.jpg" />
             </Canvas.Background>
