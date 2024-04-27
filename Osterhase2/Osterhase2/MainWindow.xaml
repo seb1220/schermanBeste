@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Osterhase2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="817" Width="1000"
+        SizeChanged="Window_SizeChanged">
     <Grid>
-
+        <Canvas Name="MapCanvas">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Stadtplan-Wiener-Neustadt.jpg" />
+            </Canvas.Background>
+        </Canvas>
     </Grid>
 </Window>
