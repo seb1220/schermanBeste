@@ -47,11 +47,11 @@
             <StackPanel Grid.Row="1" Grid.Column="0">
                 <Label Content="Available Ships" />
 
-                <Label Content="{Binding FriendlyField.Size}" />
-                <Label Content="{Binding FriendlyField.Ships5}" />
-                <Label Content="{Binding FriendlyField.Ships4}" />
-                <Label Content="{Binding FriendlyField.Ships3}" />
-                <Label Content="{Binding FriendlyField.Ships2}" />
+                <Label Content="{Binding GameField.Size}" />
+                <Label Content="{Binding GameField.Ships5}" />
+                <Label Content="{Binding GameField.Ships4}" />
+                <Label Content="{Binding GameField.Ships3}" />
+                <Label Content="{Binding GameField.Ships2}" />
 
                 <Label Content="Placed Ships" />
 

@@ -13,6 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="GraphControl">
+      <HintPath>GraphControl.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="GraphControl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Routing.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
