@@ -19,6 +19,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -30,9 +31,12 @@
         <TextBox Name="TbLongitude" Text="{Binding InputLongitude}" Grid.Row="1" Grid.Column="1" />
         <TextBox Name="TbLatitude" Text="{Binding InputLatitude}" Grid.Row="1" Grid.Column="2" />
 
-        <Button x:Name="Add" Click="Add_Click" Content="Add" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
+        <Button Name="Add" Click="Add_Click" Content="Add" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
 
-        <Canvas Name="MapCanvas" Grid.Column="3" Grid.Row="0" Grid.RowSpan="4" >
+        <TextBox Name="TbK" Text="{Binding K}" Grid.Row="3" Grid.Column="0" />
+        <Button Name="CalculateHelpers" Click="CalculateHelpers_Click" Content="Calculate helpers" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"/>
+
+        <Canvas Name="MapCanvas" Grid.Column="3" Grid.Row="0" Grid.RowSpan="5" MouseDown="MapCanvas_MouseDown" >
             <Canvas.Background>
                 <ImageBrush ImageSource="Stadtplan-Wiener-Neustadt.jpg" />
             </Canvas.Background>
