@@ -4,21 +4,23 @@ namespace A1
 {
     internal class Variable : Expression
     {
-        char variable;
+        string identifier;
 
         public Variable()
         {
         }
 
-        public override void ParseFormel(List<char> formel)
+        public override bool Evaluate(Dictionary<string, bool> context)
         {
-            variable = formel[0];
-            formel.RemoveAt(0);
+            return context[identifier];
         }
 
-        public override bool Interpret(Dictionary<char, bool> context)
+        public static Expression Parse(List<Token> formel)
         {
-            return context[variable];
+            Variable variable = new Variable();
+            variable.identifier = formel[0].Value;
+            formel.RemoveAt(0);
+            return variable;
         }
     }
 

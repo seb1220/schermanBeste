@@ -2,23 +2,33 @@
 
 namespace A1.Expressions
 {
-    internal class AndExpression : Expression
+    internal class AndExpression : Operator
     {
-        Expression opertator1;
-        Expression opertator2;
 
         public AndExpression()
         {
         }
 
-        public override void ParseFormel(List<char> formel)
+        public static Expression Parse (List<Token> tokens)
         {
+            Expression left = NegationExpression.Parse(tokens);
 
+            while (tokens.Count > 0 && tokens[0].Type == TokenType.and) 
+            {
+                Operator expression = new AndExpression();
+                tokens.RemoveAt(0);
+
+                expression.Left = left;
+                expression.Right = NegationExpression.Parse(tokens);
+                left = expression;
+            }
+
+            return left;
         }
 
-        public override bool Interpret(Dictionary<char, bool> context)
+        public override bool Evaluate(Dictionary<string, bool> context)
         {
-            return opertator1.Interpret(context) && opertator2.Interpret(context);
+            return Left.Evaluate(context) && Right.Evaluate(context);
         }
     }
 }

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CalculatorWPF.Expressions.WeakOperator" Collapsed="true">
+    <Position X="13" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Expressions\WeakOperator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorWPF.Expressions.Variable" Collapsed="true">
+    <Position X="11.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Expressions\Variable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorWPF.Expressions.StrongOperator" Collapsed="true">
+    <Position X="10.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Expressions\StrongOperator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorWPF.Expressions.Expression" Collapsed="true">
+    <Position X="8" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Expressions\Expression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorWPF.Expressions.Bracket" Collapsed="true">
+    <Position X="11" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Expressions\Bracket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorWPF.Expressions.Literal" Collapsed="true">
+    <Position X="13" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAEgAAAAAAA=</HashCode>
+      <FileName>Expressions\Literal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorWPF.Expressions.Operator" Collapsed="true">
+    <Position X="13.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAA=</HashCode>
+      <FileName>Expressions\Operator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorWPF.Expressions.StrongestOperator" Collapsed="true">
+    <Position X="12.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Expressions\StrongestOperator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Parser" Collapsed="true">
+    <Position X="8.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgAAAAAAAAgAAAAAEAAgAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Parser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorWPF.Token" Collapsed="true">
+    <Position X="10.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Token.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CalculatorWPF.TokenType" Collapsed="true">
+    <Position X="10.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAEAAAQAAAEAAAAAAgAAAAAAAgAQAAAAAAAA=</HashCode>
+      <FileName>Token.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

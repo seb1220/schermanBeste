@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Aussagenlogik" Height="350" Width="525">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="497" Text="(s&amp;!(q=r))|(q&gt;r)=(p&gt;(q&amp;r))"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="497" Text="¬q ∧ ¬q"/>
         <Label x:Name="label" Content="Formel:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="168"/>
         <Button x:Name="button" Content="Formel auswerten" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="168" Click="button_Click"/>
 

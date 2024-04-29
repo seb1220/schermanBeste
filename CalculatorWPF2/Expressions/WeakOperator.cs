@@ -7,7 +7,6 @@ namespace CalculatorWPF.Expressions
     {
         public enum Type { plus, minus }
 
-
         public Type Operator { get; set; }
 
         public WeakOperator()

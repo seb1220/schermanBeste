@@ -5,27 +5,37 @@ namespace A1.Expressions
 {
     internal class NegationExpression : Expression
     {
-        Expression opertator;
-        public NegationExpression() { }
-
-        public override void ParseFormel(List<char> formel)
+        Expression child;
+        public static Expression Parse(List<Token> tokens)
         {
-            if (formel[0] != '¬')
+            if (tokens.Count == 0)
+                throw new Exception("no more token for negat :(");
+
+            NegationExpression expression = new NegationExpression();
+            if (tokens[0].Type == TokenType.varibale)
             {
-                throw new ArgumentException($"Expected '¬', got {formel[0]}");
+                expression.child = Variable.Parse(tokens);
+            }
+            else if (tokens[0].Type == TokenType.negate)
+            {
+                tokens.RemoveAt(0);
+                expression.child = NegationExpression.Parse(tokens);
+            }
+            else if (tokens[0].Type == TokenType.bracket)
+            {
+                tokens.RemoveAt(0);
+                expression.child = NegationExpression.Parse(tokens);
+            } else
+            {
+                throw new Exception("i lost in negat :(");
             }
 
-            formel.RemoveAt(0);
-
-            if (formel[0] != '¬' || formel[0] != '(' || Expression.IsLetter(formel[0]))
-            {
-                throw new ArgumentException($"Expected '¬', got {formel[0]}");
-            }
-
-            //opertator = new AbstractExpression();
-            //opertator.ParseFormel(formel);
+            return expression;
         }
 
-
+        public override bool Evaluate(Dictionary<string, bool> context)
+        {
+            return !child.Evaluate(context);
+        }
     }
 }

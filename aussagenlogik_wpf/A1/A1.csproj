@@ -61,12 +61,16 @@
     </ApplicationDefinition>
     <Compile Include="Expressions\AndExpression.cs" />
     <Compile Include="Expressions\NegationExpression.cs" />
+    <Compile Include="Expressions\Operator.cs" />
+    <Compile Include="Expressions\OrExpression.cs" />
     <Compile Include="Expressions\Variable.cs" />
+    <Compile Include="Interpreter.cs" />
+    <Compile Include="Token.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Expression.cs" />
+    <Compile Include="Expressions\Expression.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

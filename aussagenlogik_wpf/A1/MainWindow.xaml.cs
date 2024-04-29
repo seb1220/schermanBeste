@@ -16,16 +16,13 @@ namespace A1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Expression parser = null; //mit konkreter Klasse anlegen
+            Interpreter interpreter = new Interpreter();
 
-            //Variablenliste zurücksetzen
-            Expression.variables.Clear();
+            Dictionary<string, bool> variables = new Dictionary<string, bool>();
+            variables["p"] = true;
+            variables["q"] = true;
 
-            //Formel parsen
-            parser.ParseFormel(new List<char>(textBox.Text.ToCharArray()));
-
-            //Auswerten für Feld 0001
-            bool result = parser.Interpret(getBooleanFromInt(Expression.variables, 1));
+            bool result = interpreter.Evaluate(textBox.Text, variables);
 
             textBox.Text = result.ToString();
         }
